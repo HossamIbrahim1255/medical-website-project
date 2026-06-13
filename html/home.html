@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ميديكل هاب | منصة الكورسات الطبية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/home.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="القائمة الرئيسية">
+    <div class="nav-inner">
+      <a href="#" class="nav-logo" aria-label="الصفحة الرئيسية">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+        </div>
+        <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+      </a>
+
+      <ul class="nav-links" role="list">
+        <li><a href="#hero">الرئيسية</a></li>
+        <li><a href="#categories">الكورسات</a></li>
+        <li><a href="#about">من نحن</a></li>
+        <li><a href="#about">اتصل بنا</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#login-placeholder"    class="btn btn-outline">تسجيل الدخول</a>
+        <a href="#register-placeholder" class="btn btn-primary">إنشاء حساب</a>
+      </div>
+
+      <button class="nav-hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="mobileMenu" role="menu">
+    <a href="#hero"       role="menuitem">الرئيسية</a>
+    <a href="#categories" role="menuitem">التخصصات</a>
+    <a href="#why"        role="menuitem">مميزاتنا</a>
+    <a href="#about"      role="menuitem">من نحن</a>
+    <a href="#faq"        role="menuitem">الأسئلة</a>
+    <div class="mobile-actions">
+      <a href="#login-placeholder"    class="btn btn-outline">تسجيل الدخول</a>
+      <a href="#register-placeholder" class="btn btn-primary">إنشاء حساب</a>
+    </div>
+  </div>
+
+
+  <!-- HERO -->
+  <section id="hero" aria-label="القسم الرئيسي">
+    <div class="hero-container">
+
+      <!-- Text content -->
+      <div class="hero-content fade-up">
+        <div class="hero-badge">
+          <div class="hero-badge-dot"></div>
+          منصة تعليمية طبية متخصصة
+        </div>
+        <h1 class="hero-title">
+          طريقك نحو التميز في<br/>
+          <em>المجال الطبي</em><br/>
+          يبدأ من هنا
+        </h1>
+        <p class="hero-desc">
+          منصة تعليمية متخصصة في تقديم كورسات طبية عالية الجودة تساعد الطلاب والخريجين على تطوير مهاراتهم العملية والعلمية من أي مكان وفي أي وقت.
+        </p>
+        <div class="hero-cta">
+          <a href="#categories" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" class="btn-icon btn-icon-white"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            تصفح الكورسات
+          </a>
+        </div>
+      </div>
+
+      <!-- Floating cards -->
+      <div class="hero-cards-area fade-up delay-2">
+
+        <!-- Central decoration ring -->
+        <div class="hero-center-ring">
+          <div class="hero-center-ring-inner">
+            <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+          </div>
+        </div>
+
+        <!-- Card 1 — top right -->
+        <div class="f-card">
+          <div class="f-card-icon f-card-icon-blue">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          </div>
+          <div>
+            <div class="f-card-label">تخصصات طبية</div>
+            <div class="f-card-value">متنوعة ومتعمقة</div>
+          </div>
+        </div>
+
+        <!-- Card 2 — bottom right -->
+        <div class="f-card">
+          <div class="f-card-icon f-card-icon-teal">
+            <svg viewBox="0 0 24 24"><path d="M12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10zm1-8h4v2h-6V7h2v7z"/></svg>
+          </div>
+          <div>
+            <div class="f-card-label">وصول فوري</div>
+            <div class="f-card-value">بعد التسجيل مباشرة</div>
+          </div>
+        </div>
+
+        <!-- Card 3 — top left -->
+        <div class="f-card">
+          <div class="f-card-icon f-card-icon-orange">
+            <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-1.99.9-1.99 2L3 20c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+          </div>
+          <div>
+            <div class="f-card-label">جدول مرن</div>
+            <div class="f-card-value">يناسب وقتك</div>
+          </div>
+        </div>
+
+        <!-- Card 4 — bottom left -->
+        <div class="f-card">
+          <div class="f-card-icon f-card-icon-green">
+            <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          </div>
+          <div>
+            <div class="f-card-label">تعليم نظري</div>
+            <div class="f-card-value">وتطبيقي معاً</div>
+          </div>
+        </div>
+
+        <!-- Card 5 — right side -->
+        <div class="f-card">
+          <div class="f-card-icon f-card-icon-pink">
+            <svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+          </div>
+          <div>
+            <div class="f-card-label">دعم مستمر</div>
+            <div class="f-card-value">طوال رحلتك</div>
+          </div>
+        </div>
+
+        <!-- Card 6 — left side -->
+<div class="f-card">
+  <div class="f-card-icon f-card-icon-skyblue">
+    <svg viewBox="0 0 24 24"><path d="M12 1c-1.1 0-2 .9-2 2v1.07A6.99 6.99 0 0 0 5 11c0 2.21 1.21 4.15 3 5.19V18a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-1.81c1.79-1.04 3-2.98 3-5.19a6.99 6.99 0 0 0-5-6.93V3c0-1.1-.9-2-2-2zm-1 8h2v2h2v2h-2v2h-2v-2H9v-2h2V9zM9 21a1 1 0 0 0 1 1h4a1 1 0 0 0 1-1v-1H9v1z"/></svg>
+  </div>
+  <div>
+    <div class="f-card-label">سهولة الدفع</div>
+    <div class="f-card-value">لكل الكورسات</div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CATEGORIES -->
+  <section id="categories" aria-label="التخصصات المتاحة">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label fade-up">التخصصات</span>
+        <h2 class="section-title fade-up delay-1">التخصصات المتاحة</h2>
+        <p class="section-subtitle fade-up delay-2">اختر تخصصك وابدأ رحلتك التعليمية مع محتوى طبي متخصص ومنظم.</p>
+      </div>
+      <div class="categories-grid">
+        <div class="cat-card fade-up delay-1">
+          <div class="cat-icon cat-icon-1"><svg viewBox="0 0 24 24"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 12c5.33 0 8 2.67 8 4v2H4v-2c0-1.33 2.67-4 8-4z"/></svg></div>
+          <h3 class="cat-name">الطب البشري</h3>
+          <p class="cat-desc">كورسات شاملة تغطي المواد الطبية الأساسية والسريرية للطلاب والخريجين.</p>
+        </div>
+        <div class="cat-card fade-up delay-2">
+          <div class="cat-icon cat-icon-2"><svg viewBox="0 0 24 24"><path d="M12 2c-1.5 0-2.9.4-4 1.1C6.4 2 4.2 2 3 3.7 1.8 5.3 2 7.8 3 9.5c1 1.7 2 3 2 5.5 0 2 .5 5 2 7h2l1-5 1 5h2c1.5-2 2-5 2-7 0-2.5 1-3.8 2-5.5C18 8 18.2 5.4 17 3.7 15.8 2 13.6 2 12 2z"/></svg></div>
+          <h3 class="cat-name">طب الأسنان</h3>
+          <p class="cat-desc">محتوى تعليمي متخصص في علوم الأسنان من الأساسيات حتى التخصصات الدقيقة.</p>
+        </div>
+        <div class="cat-card fade-up delay-3">
+          <div class="cat-icon cat-icon-3"><svg viewBox="0 0 24 24"><path d="M20.5 3l-.16.03L15 5.1 9 3 3.36 4.9c-.21.07-.36.25-.36.48V20.5c0 .28.22.5.5.5l.16-.03L9 18.9l6 2.1 5.64-1.9c.21-.07.36-.25.36-.48V3.5c0-.28-.22-.5-.5-.5zM15 19l-6-2.11V5l6 2.11V19z"/></svg></div>
+          <h3 class="cat-name">الصيدلة</h3>
+          <p class="cat-desc">كورسات في الأدوية والتحليل الكيميائي والتطبيقات الصيدلانية الحديثة.</p>
+        </div>
+        <div class="cat-card fade-up delay-4">
+          <div class="cat-icon cat-icon-4"><svg viewBox="0 0 24 24"><path d="M13.49 5.48c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm-3.6 13.9l1-4.4 2.1 2v6h2v-7.5l-2.1-2 .6-3c1.3 1.5 3.3 2.5 5.5 2.5v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1l-5.2 2.2v4.7h2v-3.4l1.8-.7-1.6 8.1-4.9-1-.4 2 7 1.4z"/></svg></div>
+          <h3 class="cat-name">العلاج الطبيعي</h3>
+          <p class="cat-desc">برامج تعليمية في تقنيات العلاج الطبيعي وإعادة التأهيل والحركة.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- WHY -->
+  <section id="why" aria-label="لماذا تتعلم معنا">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label fade-up">مميزاتنا</span>
+        <h2 class="section-title fade-up delay-1">لماذا تتعلم معنا؟</h2>
+        <p class="section-subtitle fade-up delay-2">نقدم تجربة تعليمية مصممة خصيصًا لطلاب وخريجي التخصصات الطبية.</p>
+      </div>
+      <div class="why-grid">
+        <div class="why-card fade-up delay-1">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+          <h3 class="why-title">محتوى متخصص في المجال الطبي</h3>
+          <p class="why-desc">كل كورس مصمم من قبل متخصصين في مجالهم لضمان أعلى مستويات الدقة والموثوقية العلمية.</p>
+        </div>
+        <div class="why-card fade-up delay-2">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg></div>
+          <h3 class="why-title">شرح مبسط ومنظم</h3>
+          <p class="why-desc">نعتمد أسلوب شرح تدريجي ومرتب يناسب المبتدئين ويثري معرفة المتقدمين في آن واحد.</p>
+        </div>
+        <div class="why-card fade-up delay-3">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg></div>
+          <h3 class="why-title">متابعة مستمرة وتحديث للمحتوى</h3>
+          <p class="why-desc">نحرص على تحديث الكورسات بانتظام لمواكبة أحدث المستجدات والتطورات في العلوم الطبية.</p>
+        </div>
+        <div class="why-card fade-up delay-4">
+          <div class="why-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <h3 class="why-title">إمكانية التعلم في أي وقت ومن أي مكان</h3>
+          <p class="why-desc">المنصة متاحة على جميع الأجهزة تتيح لك التعلم متى أردت وأينما كنت دون أي قيود.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" aria-label="نبذة عنا">
+    <div class="container">
+      <div class="about-inner">
+        <div class="about-visual fade-up">
+          <div class="about-card-main">
+            <h3>رؤيتنا التعليمية</h3>
+            <p>نؤمن بأن التعليم الطبي الجيد هو الأساس لبناء كوادر صحية قادرة على الارتقاء بالمنظومة الطبية.</p>
+            <div class="about-icon-row">
+              <span class="about-pill">🎓 محتوى أكاديمي</span>
+              <span class="about-pill">🏥 تطبيقي وعملي</span>
+              <span class="about-pill">🌐 عبر الإنترنت</span>
+            </div>
+          </div>
+        </div>
+        <div class="about-content fade-up delay-2">
+          <span class="section-label">من نحن</span>
+          <h2 class="section-title">نبذة عنا</h2>
+          <p class="section-subtitle">نسعى إلى توفير محتوى طبي تعليمي موثوق يساعد الطلاب والخريجين على تطوير معارفهم ومهاراتهم المهنية من خلال تجربة تعلم حديثة وسهلة الاستخدام.</p>
+          <ul class="about-list">
+            <li class="about-list-item"><div class="about-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>محتوى علمي موثوق ومراجَع من متخصصين في مجالاتهم.</span></li>
+            <li class="about-list-item"><div class="about-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>تجربة تعليمية حديثة تجمع بين النظري والتطبيقي.</span></li>
+            <li class="about-list-item"><div class="about-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div><span>واجهة بسيطة وسهلة تتيح للجميع التعلم بكل يسر وراحة.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FAQ -->
+  <section id="faq" aria-label="الأسئلة الشائعة">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label fade-up">استفسارات</span>
+        <h2 class="section-title fade-up delay-1">الأسئلة الشائعة</h2>
+        <p class="section-subtitle fade-up delay-2">إجابات على أكثر الأسئلة التي يطرحها المستخدمون.</p>
+      </div>
+      <div class="faq-list fade-up delay-1">
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">هل الكورسات مجانية؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">بعض الكورسات مجانية بينما تتطلب الكورسات المتقدمة اشتراكًا أو شراءً.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">هل يمكنني مشاهدة الدروس أكثر من مرة؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">نعم، يمكنك مشاهدة الدروس عدد مرات غير محدود طوال فترة اشتراكك في الكورس.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">هل أمتلك الكورس مدى الحياة؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">لا، يتم توفير الوصول للكورس لمدة محددة حسب الباقة أو مدة الاشتراك.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- CTA -->
+  <section id="cta" aria-label="ابدأ رحلتك">
+    <div class="container">
+      <div class="cta-inner fade-up">
+        <h2 class="cta-title">ابدأ رحلتك التعليمية اليوم</h2>
+        <p class="cta-desc">استكشف الكورسات الطبية المتاحة وطور مهاراتك الأكاديمية والمهنية.</p>
+        <div class="cta-btn-wrap">
+          <a href="#categories" class="btn btn-white">
+            <svg viewBox="0 0 24 24" class="btn-icon btn-icon-primary"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+            تصفح الكورسات
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer id="footer" aria-label="تذييل الصفحة">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo footer-brand-logo">
+            <div class="nav-logo-icon" style="margin-right: 50px;"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg></div>
+            <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+          </a>
+          <p class="footer-desc">منصة تعليمية طبية متخصصة تهدف إلى تطوير مهارات الطلاب والخريجين في مجال الطب والعلوم الصحية.</p>
+          <div class="footer-social">
+            <a href="#" class="social-btn" aria-label="فيسبوك"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="social-btn" aria-label="إنستغرام"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="social-btn" aria-label="يوتيوب"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" class="youtube-play-icon"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="#hero">الرئيسية</a></li>
+            <li><a href="#categories">التخصصات</a></li>
+            <li><a href="#why">مميزاتنا</a></li>
+            <li><a href="#about">من نحن</a></li>
+            <li><a href="#faq">الأسئلة الشائعة</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">اقسام الكورسات</h4>
+          <ul class="footer-links">
+            <li><a href="#categories">الطب البشري</a></li>
+            <li><a href="#categories">طب الأسنان</a></li>
+            <li><a href="#categories">الصيدلة</a></li>
+            <li><a href="#categories">العلاج الطبيعي</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 ميديكل هاب. جميع الحقوق محفوظة.</p></div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="العودة إلى الأعلى">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="../js/home.js"></script>
+</body>
+</html>
