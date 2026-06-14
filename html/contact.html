@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ميديكل هاب | اتصل بنا</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/contact.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar" role="navigation" aria-label="القائمة الرئيسية">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo" aria-label="الصفحة الرئيسية">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+        </div>
+        <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="home.html#categories">الكورسات</a></li>
+        <li><a href="home.html#about">من نحن</a></li>
+        <li><a href="contact.html" class="active">اتصل بنا</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn-primary">إنشاء حساب</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" id="mobileMenu" role="menu">
+    <a href="home.html" role="menuitem">الرئيسية</a>
+    <a href="home.html#categories" role="menuitem">الكورسات</a>
+    <a href="home.html#about" role="menuitem">من نحن</a>
+    <a href="contact.html" role="menuitem">اتصل بنا</a>
+    <div class="mobile-actions">
+      <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+      <a href="register.html" class="btn btn-primary">إنشاء حساب</a>
+    </div>
+  </div>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero" aria-label="اتصل بنا">
+    <div class="container">
+      <div class="page-hero-inner fade-up">
+        <span class="section-label">تواصل معنا</span>
+        <h1>نحن هنا <em>لمساعدتك</em></h1>
+        <p>أي استفسار، اقتراح، أو شكوى — فريقنا يرد عليك في أقرب وقت ممكن.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT MAIN -->
+  <section id="contact-main" aria-label="نموذج التواصل">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- INFO COLUMN -->
+        <div class="contact-info fade-up delay-1">
+          <div>
+            <h2 class="contact-intro-title">تواصل مع فريق<br/>ميديكل هاب</h2>
+            <p class="contact-intro-desc">سواء كنت طالبًا تريد الاستفسار عن كورس، أو منشئ محتوى تريد الانضمام إلينا، أو لديك أي ملاحظة — نحن نسمعك دائمًا.</p>
+          </div>
+
+          <div class="info-cards">
+            <div class="info-card">
+              <div class="info-card-icon blue">
+                <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              </div>
+              <div>
+                <div class="info-card-label">البريد الإلكتروني</div>
+                <div class="info-card-value">support@medicalhub.com</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon teal">
+                <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+              </div>
+              <div>
+                <div class="info-card-label">رقم الهاتف</div>
+                <div class="info-card-value">01000000000+</div>
+              </div>
+            </div>
+            <div class="info-card">
+              <div class="info-card-icon orange">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm1 14.915V18h-2v-1.085C8.649 16.688 7 14.559 7 12h2c0 1.654 1.346 3 3 3s3-1.346 3-3-1.346-3-3-3c-2.757 0-5-2.243-5-5 0-2.414 1.721-4.433 4-4.899V8h2V3.101C15.279 3.567 17 5.586 17 8c0 2.757-2.243 5-5 5 .55 0 1 .45 1 1 0 .55-.45 1-1 1v1.915z"/></svg>
+              </div>
+              <div>
+                <div class="info-card-label">أوقات الرد</div>
+                <div class="info-card-value">السبت – الخميس | 9ص – 5م</div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <p style="font-family: var(--font-display); font-size: 0.82rem; font-weight: 700; color: var(--color-text-muted); margin-bottom: 12px;">تابعنا على</p>
+            <div class="social-row-contact">
+              <a href="#" class="social-btn" aria-label="فيسبوك">
+                <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="إنستغرام">
+                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              </a>
+              <a href="#" class="social-btn" aria-label="يوتيوب">
+                <svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:var(--color-text)"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- FORM COLUMN -->
+        <div class="contact-form-card fade-up delay-2">
+          <div id="form-alert-error" class="alert alert-error"></div>
+
+          <!-- SUCCESS STATE -->
+          <div class="success-state" id="successState">
+            <div class="success-icon-wrap">
+              <svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            </div>
+            <div class="success-title">تم إرسال رسالتك!</div>
+            <div class="success-desc">شكرًا لتواصلك معنا. سيرد عليك فريقنا خلال 24 ساعة عمل.</div>
+            <div class="success-ref" id="ticketRef"></div>
+            <button class="btn btn-outline" onclick="resetForm()" style="margin-top: 8px;">إرسال رسالة أخرى</button>
+          </div>
+
+          <!-- FORM -->
+          <div id="formContent">
+            <h3 class="form-card-title">أرسل لنا رسالة</h3>
+            <p class="form-card-subtitle">سنرد عليك خلال 24 ساعة عمل</p>
+
+            <div class="contact-form" id="contactForm">
+
+              <!-- Name row -->
+              <div class="form-row">
+                <div class="form-group" id="fg-name">
+                  <label class="form-label" for="c-name">الاسم الكامل</label>
+                  <div class="input-wrap">
+                    <span class="input-icon">
+                      <svg viewBox="0 0 24 24"><path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/></svg>
+                    </span>
+                    <input type="text" id="c-name" class="form-input" placeholder="أحمد محمد" autocomplete="name" />
+                  </div>
+                  <span class="form-error" id="err-name"></span>
+                </div>
+                <div class="form-group" id="fg-phone">
+                  <label class="form-label" for="c-phone">رقم الهاتف <span style="color:var(--color-text-muted);font-weight:400">(اختياري)</span></label>
+                  <div class="input-wrap">
+                    <span class="input-icon">
+                      <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                    </span>
+                    <input type="tel" id="c-phone" class="form-input" placeholder="010xxxxxxxx" />
+                  </div>
+                  <span class="form-error" id="err-phone"></span>
+                </div>
+              </div>
+
+              <!-- Email -->
+              <div class="form-group" id="fg-email">
+                <label class="form-label" for="c-email">البريد الإلكتروني</label>
+                <div class="input-wrap">
+                  <span class="input-icon">
+                    <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                  </span>
+                  <input type="email" id="c-email" class="form-input" placeholder="example@email.com" autocomplete="email" />
+                </div>
+                <span class="form-error" id="err-email"></span>
+              </div>
+
+              <!-- Subject -->
+              <div class="form-group" id="fg-subject">
+                <label class="form-label" for="c-subject">موضوع الرسالة</label>
+                <div class="input-wrap" style="display:block;">
+                  <select id="c-subject" class="form-select">
+                    <option value="" disabled selected>اختر موضوع الرسالة</option>
+                    <option value="course-inquiry">استفسار عن كورس</option>
+                    <option value="payment">مشكلة في الدفع</option>
+                    <option value="technical">مشكلة تقنية</option>
+                    <option value="instructor">الانضمام كمنشئ محتوى</option>
+                    <option value="suggestion">اقتراح أو ملاحظة</option>
+                    <option value="other">أخرى</option>
+                  </select>
+                </div>
+                <span class="form-error" id="err-subject"></span>
+              </div>
+
+              <!-- Message -->
+              <div class="form-group" id="fg-message">
+                <label class="form-label" for="c-message">الرسالة</label>
+                <div class="input-wrap" style="display:block; position:relative;">
+                  <textarea id="c-message" class="form-textarea" placeholder="اكتب رسالتك هنا بالتفصيل..."></textarea>
+                </div>
+                <div class="char-count" id="charCount">0 / 1000</div>
+                <span class="form-error" id="err-message"></span>
+              </div>
+
+              <button type="button" class="btn btn-primary btn-block" id="submitBtn">
+                <span class="btn-text">
+                  <svg viewBox="0 0 24 24" class="btn-icon-submit">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                  </svg>
+                  إرسال الرسالة
+                </span>
+                <span class="btn-spinner" style="display:none;">
+                  <svg viewBox="0 0 24 24" class="spin"><path d="M12 4V2A10 10 0 0 0 2 12h2a8 8 0 0 1 8-8z"/></svg>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ MINI -->
+  <section id="faq-mini" aria-label="أسئلة شائعة">
+    <div class="container">
+      <div class="section-head">
+        <span class="section-label fade-up">استفسارات</span>
+        <h2 class="section-title fade-up delay-1">أسئلة شائعة</h2>
+        <p class="section-subtitle fade-up delay-2">إجابات على أكثر الأسئلة تكرارًا قبل التواصل معنا.</p>
+      </div>
+      <div class="faq-list fade-up delay-1">
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">خلال كم من الوقت يتم الرد على رسائلي؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">نحرص على الرد على جميع الرسائل خلال 24 ساعة عمل. في أيام العطلات الرسمية قد يمتد وقت الرد إلى يوم عمل إضافي.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">كيف أسترد مبلغ اشتراكي في كورس؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">يمكنك طلب استرداد المبلغ خلال 7 أيام من تاريخ الشراء إذا لم تشاهد أكثر من 20% من محتوى الكورس. أرسل لنا رسالة عبر هذا النموذج مع ذكر اسم الكورس ورقم العملية.</div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+            <span class="faq-question-text">كيف أنضم كمنشئ محتوى؟</span>
+            <div class="faq-toggle"><svg viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></div>
+          </div>
+          <div class="faq-answer">اختر "الانضمام كمنشئ محتوى" من قائمة الموضوع في النموذج أعلاه وأخبرنا عن تخصصك وخبرتك. سيتواصل معك فريقنا لإكمال الإجراءات.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer" aria-label="تذييل الصفحة">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="home.html" class="nav-logo" style="display:inline-flex;">
+            <div class="nav-logo-icon"><svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg></div>
+            <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+          </a>
+          <p class="footer-desc">منصة تعليمية طبية متخصصة تهدف إلى تطوير مهارات الطلاب والخريجين في مجال الطب والعلوم الصحية.</p>
+          <div class="footer-social">
+            <a href="#" class="footer-social-btn" aria-label="فيسبوك"><svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg></a>
+            <a href="#" class="footer-social-btn" aria-label="إنستغرام"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer-social-btn" aria-label="يوتيوب"><svg viewBox="0 0 24 24"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58 2.78 2.78 0 0 0 1.95 1.96C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.96-1.96A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" style="fill:#1A2B45"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4 class="footer-col-title">روابط سريعة</h4>
+          <ul class="footer-links">
+            <li><a href="home.html">الرئيسية</a></li>
+            <li><a href="home.html#categories">التخصصات</a></li>
+            <li><a href="home.html#why">مميزاتنا</a></li>
+            <li><a href="home.html#about">من نحن</a></li>
+            <li><a href="contact.html">اتصل بنا</a></li>
+            <li><a href="home.html#faq">الأسئلة الشائعة</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-col-title">أقسام الكورسات</h4>
+          <ul class="footer-links">
+            <li><a href="home.html#categories">الطب البشري</a></li>
+            <li><a href="home.html#categories">طب الأسنان</a></li>
+            <li><a href="home.html#categories">الصيدلة</a></li>
+            <li><a href="home.html#categories">العلاج الطبيعي</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom"><p>© 2026 ميديكل هاب. جميع الحقوق محفوظة.</p></div>
+    </div>
+  </footer>
+
+  <button id="scroll-top" aria-label="العودة إلى الأعلى">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="../js/contact.js"></script>
+</body>
+</html>
