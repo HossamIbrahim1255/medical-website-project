@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ميديكل هاب | الكورسات</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/courses.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="home.html" class="nav-logo" aria-label="الصفحة الرئيسية">
+        <div class="nav-logo-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+        </div>
+        <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="home.html">الرئيسية</a></li>
+        <li><a href="courses.html" class="active">الكورسات</a></li>
+        <li><a href="home.html#about">من نحن</a></li>
+        <li><a href="contact.html">اتصل بنا</a></li>
+      </ul>
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+        <a href="register.html" class="btn btn-primary">إنشاء حساب</a>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="فتح القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+  <div class="nav-mobile" id="mobileMenu">
+    <a href="home.html">الرئيسية</a>
+    <a href="courses.html">الكورسات</a>
+    <a href="home.html#about">من نحن</a>
+    <a href="contact.html">اتصل بنا</a>
+    <div class="mobile-actions">
+      <a href="login.html" class="btn btn-outline">تسجيل الدخول</a>
+      <a href="register.html" class="btn btn-primary">إنشاء حساب</a>
+    </div>
+  </div>
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <div class="container page-header-inner">
+      <div class="page-header-breadcrumb">
+        <a href="home.html">الرئيسية</a>
+        <svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg>
+        <span>الكورسات</span>
+      </div>
+      <h1>استعرض جميع الكورسات</h1>
+      <p>اختر من بين تخصصات طبية متنوعة وابدأ رحلتك التعليمية اليوم.</p>
+    </div>
+  </div>
+
+  <!-- COURSES PAGE -->
+  <section class="courses-page">
+    <div class="container">
+      <div class="courses-layout">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+          <!-- Search -->
+          <div class="sidebar-card">
+            <div class="sidebar-title">
+              <svg viewBox="0 0 24 24"><path d="M21 21l-4.35-4.35M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z" stroke="var(--color-primary)" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
+              بحث
+            </div>
+            <div class="search-wrap">
+              <input type="search" id="searchInput" placeholder="ابحث عن كورس..." />
+              <span class="search-icon">
+                <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+            </div>
+          </div>
+
+          <!-- Specialty Filter -->
+          <div class="sidebar-card">
+            <div class="sidebar-title">
+              <svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h7"/></svg>
+              التخصص
+            </div>
+            <div class="filter-chip-group" id="specialtyFilter">
+              <span id="5" class="filter-chip active" data-val="all">الكل</span>
+              <span class="filter-chip" data-val="طب بشري">الطب البشري</span>
+              <span class="filter-chip" data-val="أسنان">طب الأسنان</span>
+              <span class="filter-chip" data-val="صيدلة">الصيدلة</span>
+              <span class="filter-chip" data-val="علاج طبيعي">العلاج الطبيعي</span>
+            </div>
+          </div>
+
+          <!-- Level Filter -->
+          <div class="sidebar-card">
+            <div class="sidebar-title">
+              <svg viewBox="0 0 24 24"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+              المستوى
+            </div>
+            <div class="filter-radio-group" id="levelFilter">
+              <label class="filter-radio"><input type="radio" name="level" value="all" checked/><span>جميع المستويات</span></label>
+              <label class="filter-radio"><input type="radio" name="level" value="مبتدئ"/><span>مبتدئ</span></label>
+              <label class="filter-radio"><input type="radio" name="level" value="متوسط"/><span>متوسط</span></label>
+              <label class="filter-radio"><input type="radio" name="level" value="متقدم"/><span>متقدم</span></label>
+            </div>
+          </div>
+
+          <!-- Price Filter -->
+          <div class="sidebar-card">
+            <div class="sidebar-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1.41 16.09V20h-2.67v-1.93c-1.71-.36-3.16-1.46-3.27-3.4h1.96c.1 1.05.82 1.87 2.65 1.87 1.96 0 2.4-.98 2.4-1.59 0-.83-.44-1.61-2.67-2.14-2.48-.6-4.18-1.62-4.18-3.67 0-1.72 1.39-2.84 3.11-3.21V4h2.67v1.95c1.86.45 2.79 1.86 2.85 3.39H14.3c-.05-1.11-.64-1.87-2.22-1.87-1.5 0-2.4.68-2.4 1.64 0 .84.65 1.39 2.67 1.91s4.18 1.39 4.18 3.91c-.01 1.83-1.38 2.83-3.12 3.16z"/></svg>
+              السعر
+            </div>
+            <div class="filter-radio-group" id="priceFilter">
+              <label class="filter-radio"><input type="radio" name="price" value="all" checked/><span>الكل</span></label>
+              <label class="filter-radio"><input type="radio" name="price" value="free"/><span>مجاني</span></label>
+              <label class="filter-radio"><input type="radio" name="price" value="paid"/><span>مدفوع</span></label>
+            </div>
+          </div>
+
+          <!-- Rating Filter -->
+          <div class="sidebar-card">
+            <div class="sidebar-title">
+              <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              التقييم
+            </div>
+            <div class="filter-radio-group" id="ratingFilter">
+              <label class="filter-radio"><input type="radio" name="rating" value="all" checked/><span>جميع التقييمات</span></label>
+              <label class="filter-radio"><input type="radio" name="rating" value="4.5"/><span>4.5 فأكثر ⭐</span></label>
+              <label class="filter-radio"><input type="radio" name="rating" value="4"/><span>4.0 فأكثر ⭐</span></label>
+            </div>
+          </div>
+
+          <button class="filter-reset" id="resetFilters">↺ إعادة تعيين الفلاتر</button>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <div class="courses-main">
+
+          <!-- Saved / All tabs -->
+          <div class="saved-tab-wrap">
+            <button class="saved-tab active" id="tabAll">
+              <svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              جميع الكورسات
+            </button>
+            <button class="saved-tab" id="tabSaved">
+              <svg viewBox="0 0 24 24" style="stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+              المحفوظة
+              <span class="saved-count" id="savedCount">0</span>
+            </button>
+          </div>
+
+          <!-- Toolbar -->
+          <div class="courses-toolbar">
+            <span class="courses-count">إجمالي: <strong id="courseCountLabel">0</strong> كورس</span>
+            <div class="toolbar-right">
+              <select class="sort-select" id="sortSelect">
+                <option value="default">الترتيب الافتراضي</option>
+                <option value="rating">الأعلى تقييمًا</option>
+                <option value="price-asc">السعر: الأقل أولاً</option>
+                <option value="price-desc">السعر: الأعلى أولاً</option>
+                <option value="newest">الأحدث</option>
+              </select>
+              <div class="view-toggle">
+                <button class="view-btn active" id="gridViewBtn" aria-label="عرض شبكي">
+                  <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+                </button>
+                <button class="view-btn" id="listViewBtn" aria-label="عرض قائمة">
+                  <svg viewBox="0 0 24 24"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grid -->
+          <div class="courses-grid" id="coursesGrid"></div>
+
+          <!-- Empty state -->
+          <div class="empty-state" id="emptyState" style="display:none;">
+            <div class="empty-icon">
+              <svg viewBox="0 0 24 24"><path d="M10 10a4 4 0 1 0 0-8 4 4 0 0 0 0 8zm0 2c-5 0-9 2-9 5v1h18v-1c0-3-4-5-9-5z"/></svg>
+            </div>
+            <div class="empty-title" id="emptyTitle">لا توجد كورسات</div>
+            <div class="empty-desc" id="emptyDesc">لم يتم العثور على كورسات تطابق الفلاتر المحددة.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <button id="scroll-top" aria-label="العودة إلى الأعلى">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script src="../js/courses.js"></script>
+</body>
+</html>
