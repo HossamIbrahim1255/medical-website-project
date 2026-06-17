@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ميديكل هاب | داشبورد الطالب</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/student-dashboard.css" />
+
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+      </div>
+      <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+    </a>
+    <div class="nav-right">
+<div style="position:relative" id="notifWrapper">
+  <button class="nav-notif" id="notifBtn" aria-label="الإشعارات">
+    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    <span class="nav-notif-badge" id="notifBadge"></span>
+  </button>
+  <div class="notif-dropdown" id="notifDropdown">
+    <div class="notif-header">
+      <span class="notif-header-title">الإشعارات</span>
+      <button class="notif-mark-all" id="markAllBtn">تحديد الكل كمقروء</button>
+    </div>
+    <div class="notif-list" id="notifList"></div>
+    <div class="notif-footer">
+      <button class="notif-footer-btn" onclick="navigate('notifications');document.getElementById('notifDropdown').classList.remove('open')">عرض كل الإشعارات</button>
+    </div>
+  </div>
+</div>
+      <div class="nav-user" onclick="navigate('profile')">
+        <div class="nav-avatar">أح</div>
+        <div>
+          <div class="nav-user-name">أحمد محمد</div>
+          <div class="nav-user-role">طالب</div>
+        </div>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="القائمة" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<!-- LAYOUT -->
+<div class="dash-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <span class="sidebar-section-title">الرئيسية</span>
+      <div class="sidebar-link active" onclick="navigate('home')">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        لوحة التحكم
+      </div>
+      <div class="sidebar-link" onclick="navigate('mycourses')">
+        <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        كورساتي
+        <span class="badge" id="sidebarMyCoursesBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('saved')">
+        <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        الكورسات المحفوظة
+        <span class="badge" id="sidebarSavedBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="window.location.href='courses.html'">
+        <svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        استعراض كل الكورسات
+        <span class="ext-icon"><svg viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('notifications')">
+  <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+  الإشعارات
+  <span class="badge" id="sidebarNotifBadge">0</span>
+</div>
+      <span class="sidebar-section-title">الحساب</span>
+      <div class="sidebar-link" onclick="navigate('profile')">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        الملف الشخصي
+      </div>
+      <div class="sidebar-link" onclick="navigate('settings')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        الإعدادات
+      </div>
+      <button class="sidebar-logout" onclick="window.location.href='login.html'">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        تسجيل الخروج
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <main class="dash-main">
+
+    <!-- HOME -->
+    <section class="page-section active" id="sec-home">
+      <div class="welcome-bar">
+        <div class="welcome-badge"><span class="welcome-badge-dot"></span>مرحباً بك في ميديكل هاب</div>
+        <h2>أهلاً، أحمد! 👋</h2>
+        <p>استمر في رحلتك التعليمية راجع تقدمك في الكورسات</p>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-icon lucide-play"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+          </div>
+          <div>
+            <div class="stat-label">كورسات مسجلة</div>
+            <div class="stat-value" id="statEnrolled">0</div>
+            <div class="stat-sub" id="statEnrolledSub">٠ قيد التقدم</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-green">
+            <svg viewBox="0 0 24 24"><path d="M9 16.2L4.8 12l-1.4 1.4L9 19 20.6 7.4 19.2 6z"/></svg>
+          </div>
+          <div>
+            <div class="stat-label">كورسات مكتملة</div>
+            <div class="stat-value" id="statCompleted">0</div>
+            <div class="stat-sub">أنهيت كل محتواها</div>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-icon stat-icon-orange">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader"><path d="M12 2v4"/><path d="m16.2 7.8 2.9-2.9"/><path d="M18 12h4"/><path d="m16.2 16.2 2.9 2.9"/><path d="M12 18v4"/><path d="m4.9 19.1 2.9-2.9"/><path d="M2 12h4"/><path d="m4.9 4.9 2.9 2.9"/></svg>
+          </div>
+          <div>
+            <div class="stat-label">متوسط التقدم</div>
+            <div class="stat-value" id="statAvg">0%</div>
+            <div class="stat-sub">عبر جميع كورساتك</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-head">
+        <span class="sec-title">تابع من حيث توقفت</span>
+        <span class="sec-link" onclick="navigate('mycourses')">عرض الكل ←</span>
+      </div>
+      <div class="courses-row" id="activeCoursesRow"></div>
+
+      <div class="sec-head">
+        <span class="sec-title">آخر النشاطات</span>
+      </div>
+      <div class="activity-list" id="activityList"></div>
+    </section>
+
+    <!-- MY COURSES -->
+    <section class="page-section" id="sec-mycourses">
+      <div class="sec-head" style="margin-bottom:18px">
+        <span class="sec-title" style="font-size:1.4rem">كورساتي</span>
+      </div>
+      <div class="mc-tabs" id="mcTabs">
+        <div class="mc-tab active" data-filter="all">الكل</div>
+        <div class="mc-tab" data-filter="progress">قيد التقدم</div>
+        <div class="mc-tab" data-filter="completed">مكتملة</div>
+      </div>
+      <div class="courses-row" id="myCoursesGrid"></div>
+    </section>
+
+    <!-- SAVED COURSES -->
+    <section class="page-section" id="sec-saved">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="sec-title" style="font-size:1.4rem">الكورسات المحفوظة</span>
+      </div>
+      <div class="courses-row" id="savedCoursesGrid"></div>
+    </section>
+
+    <!-- PROFILE -->
+    <section class="page-section" id="sec-profile">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="sec-title" style="font-size:1.4rem">الملف الشخصي</span>
+      </div>
+      <div class="profile-card">
+        <div class="profile-header">
+          <div class="profile-avatar-big">أح</div>
+          <div class="profile-info">
+            <h2>أحمد محمد علي</h2>
+            <p>ahmed.mohammed@email.com</p>
+            <div class="profile-spec-pill">
+              <svg viewBox="0 0 24 24" style="width:13px;height:13px;fill:var(--color-primary)"><path d="M12 2a5 5 0 1 1 0 10A5 5 0 0 1 12 2zm0 12c5.33 0 8 2.67 8 4v2H4v-2c0-1.33 2.67-4 8-4z"/></svg>
+              طالب 
+            </div>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group">
+            <label class="form-label">الاسم الأول</label>
+            <input class="form-input" value="أحمد" type="text"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">الاسم الثاني</label>
+            <input class="form-input" value="محمد" type="text"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">الاسم الثالث</label>
+            <input class="form-input" value="علي" type="text"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">رقم الهاتف</label>
+            <input class="form-input" value="01012345678" type="tel"/>
+          </div>
+          <div class="form-group full">
+            <label class="form-label">البريد الإلكتروني</label>
+            <input class="form-input" value="ahmed.mohammed@email.com" type="email" readonly/>
+          </div>
+        </div>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-primary">حفظ التغييرات</button>
+          <button class="btn btn-outline">إلغاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SETTINGS -->
+    <section class="page-section" id="sec-settings">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="sec-title" style="font-size:1.4rem">الإعدادات</span>
+      </div>
+      <div class="profile-card">
+        <div class="sec-title" style="margin-bottom:18px">تغيير كلمة المرور</div>
+        <div class="form-grid">
+          <div class="form-group full">
+            <label class="form-label">كلمة المرور الحالية</label>
+            <input class="form-input" type="password" placeholder="••••••••••"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">كلمة المرور الجديدة</label>
+            <input class="form-input" type="password" placeholder="••••••••••"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label">تأكيد كلمة المرور</label>
+            <input class="form-input" type="password" placeholder="••••••••••"/>
+          </div>
+        </div>
+        <div style="margin-top:20px">
+          <button class="btn btn-primary">تحديث كلمة المرور</button>
+        </div>
+      </div>
+      <div class="profile-card" style="margin-top:18px">
+        <div class="sec-title" style="margin-bottom:18px">إعدادات الإشعارات</div>
+        <div style="display:flex;flex-direction:column;gap:14px">
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-size:0.9rem;color:var(--color-text)">إشعارات الكورسات الجديدة</span>
+            <input type="checkbox" checked style="width:18px;height:18px;cursor:pointer;accent-color:var(--color-primary)"/>
+          </label>
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-size:0.9rem;color:var(--color-text)">تذكير استكمال الكورسات</span>
+            <input type="checkbox" checked style="width:18px;height:18px;cursor:pointer;accent-color:var(--color-primary)"/>
+          </label>
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer">
+            <span style="font-size:0.9rem;color:var(--color-text)">إشعارات العروض والخصومات</span>
+            <input type="checkbox" style="width:18px;height:18px;cursor:pointer;accent-color:var(--color-primary)"/>
+          </label>
+        </div>
+      </div>
+    </section>
+    <section class="page-section" id="sec-notifications">
+      <div class="sec-head" style="margin-bottom:24px">
+        <span class="sec-title" style="font-size:1.4rem">الإشعارات</span>
+        <button class="btn btn-outline" style="font-size:0.8rem;padding:7px 16px" onclick="markAllNotifs()">تحديد الكل كمقروء</button>
+      </div>
+      <div id="notifPageList" style="display:flex;flex-direction:column;gap:10px"></div>
+    </section>
+  </main>
+</div>
+
+<script src="../js/student-dashoard.js"></script>
+</body>
+</html>
