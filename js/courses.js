@@ -130,13 +130,33 @@
     ];
 
     // ── STATE ──
-    let savedIds = JSON.parse(localStorage.getItem('mh_saved') || '[]');
+    let savedIds = JSON.parse(localStorage.getItem('mh_saved_courses') || '[]').map(c => typeof c === 'object' ? c.id : c);
     let currentTab = 'all';
     let isListView = false;
     let filters = { specialty: 'all', level: 'all', price: 'all', rating: 'all', search: '' };
     let sortVal = 'default';
 
-    function saveSaved() { localStorage.setItem('mh_saved', JSON.stringify(savedIds)); }
+    function saveSaved() {
+  const fullData = savedIds.map(id => {
+    const c = COURSES.find(x => x.id === id);
+    if (!c) return null;
+    return {
+      id: c.id,
+      name: c.title,
+      spec: c.specialty,
+      thumb: c.thumb && c.thumb.startsWith('thumb-') 
+        ? { 'thumb-blue':'linear-gradient(135deg,#2A7FD4,#4E9FE8)', 'thumb-navy':'linear-gradient(135deg,#1B5EA8,#2A7FD4)', 'thumb-teal':'linear-gradient(135deg,#0FB8C9,#2A7FD4)', 'thumb-green':'linear-gradient(135deg,#10B981,#2A7FD4)', 'thumb-purple':'linear-gradient(135deg,#8B5CF6,#2A7FD4)', 'thumb-orange':'linear-gradient(135deg,#F59E0B,#EF4444)' }[c.thumb] || 'linear-gradient(135deg,#2A7FD4,#4E9FE8)'
+        : c.thumb,
+      lessons: c.lectures || 0,
+      free: c.price === 0,
+      price: c.price || 0,
+      level: c.level || '',
+      progress: c.progress || 0,
+      enrolled: c.enrolled || false
+    };
+  }).filter(Boolean);
+  localStorage.setItem('mh_saved_courses', JSON.stringify(fullData));
+}
     function toggleSave(id) {
       if (savedIds.includes(id)) savedIds = savedIds.filter(x => x !== id);
       else savedIds.push(id);
