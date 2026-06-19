@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ميديكل هاب | داشبورد الإدارة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800;900&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="../css/admin-dashboard.css"/>
+</head>
+<body>
+
+<!-- TOAST -->
+<div class="toast-container" id="toastContainer"></div>
+
+<!-- CONFIRM DIALOG -->
+<div class="confirm-overlay" id="confirmOverlay">
+  <div class="confirm-box">
+    <div class="confirm-icon" id="confirmIcon"></div>
+    <div class="confirm-title" id="confirmTitle"></div>
+    <div class="confirm-desc" id="confirmDesc"></div>
+    <div class="confirm-btns">
+      <button class="btn btn-outline btn-sm" onclick="closeConfirm()">إلغاء</button>
+      <button class="btn btn-sm" id="confirmBtn">تأكيد</button>
+    </div>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="home.html" class="nav-logo">
+      <div class="nav-logo-icon">
+        <svg viewBox="0 0 24 24"><path d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2zm-7 14H8v-2h4v2zm3-4H8v-2h7v2zm0-4H8V7h7v2z"/></svg>
+      </div>
+      <span class="nav-logo-text">ميديكل<span>هاب</span></span>
+    </a>
+    <div class="nav-right">
+      <div style="position:relative" id="notifWrapper">
+  <button class="nav-notif" id="notifBtn" title="الإشعارات">
+    <svg viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+    <span class="nav-notif-badge" id="notifBadge" style="display:none"></span>
+  </button>
+  <div class="notif-dropdown" id="adminNotifDropdown">
+    <div class="notif-header">
+      <span class="notif-header-title">الإشعارات</span>
+      <button class="notif-mark-all" id="adminMarkAllBtn">تحديد الكل كمقروء</button>
+    </div>
+    <div class="notif-list" id="adminNotifList"></div>
+  </div>
+</div>
+      <div class="nav-user" onclick="navigate('profile')">
+        <div class="nav-avatar">أد</div>
+        <div>
+          <div class="nav-user-name">أدمن الموقع</div>
+          <div class="nav-user-role">مدير النظام</div>
+        </div>
+      </div>
+      <button class="nav-hamburger" id="hamburger" aria-label="القائمة">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-overlay" id="overlay" onclick="closeSidebar()"></div>
+
+<div class="dash-layout">
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <span class="sidebar-section-title">الرئيسية</span>
+      <div class="sidebar-link active" onclick="navigate('home')">
+        <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        لوحة التحكم
+      </div>
+      <div class="sidebar-link" onclick="navigate('complaints')">
+        <svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        الشكاوي والتواصل
+        <span class="badge badge-red" id="sidebarComplaintsBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('instructors')">
+        <svg viewBox="0 0 24 24"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+        طلبات المدربين
+        <span class="badge badge-orange" id="sidebarInstructorsBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('users')">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        إدارة المستخدمين
+        <span class="badge" id="sidebarUsersBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('courses')">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-play-icon lucide-play"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+        إدارة الكورسات
+        <span class="badge" id="sidebarCoursesBadge">0</span>
+      </div>
+      <div class="sidebar-link" onclick="navigate('earnings')">
+        <svg viewBox="0 0 24 24"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        الإيرادات والسحب
+      </div>
+      <span class="sidebar-section-title">الحساب</span>
+      <div class="sidebar-link" onclick="navigate('profile')">
+        <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        الملف الشخصي
+      </div>
+      <div class="sidebar-link" onclick="navigate('settings')">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        الإعدادات
+      </div>
+      <button class="sidebar-logout" onclick="window.location.href='login.html'">
+        <svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        تسجيل الخروج
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="dash-main">
+
+    <!-- ══ HOME ══ -->
+    <section class="page-section active" id="sec-home">
+      <div class="welcome-bar">
+        <div class="welcome-badge"><span class="welcome-badge-dot"></span>لوحة تحكم المدير</div>
+        <h2>أهلاً، أدمن! 👋</h2>
+        <p>نظرة شاملة على أداء المنصة — المستخدمون، الكورسات، الشكاوي، والإيرادات</p>
+      </div>
+
+      <div class="stats-grid" id="homeStats"></div>
+
+      <div class="sec-head">
+        <span class="sec-title">آخر طلبات المدربين</span>
+        <span class="sec-link" onclick="navigate('instructors')">عرض الكل ←</span>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table" style="background:white;border-radius:var(--radius-lg);border:1px solid var(--color-border)">
+          <thead><tr><th>المدرب</th><th>التخصص</th><th>الدرجة</th><th>الحالة</th><th>الإجراء</th></tr></thead>
+          <tbody id="homeInstructorsBody"></tbody>
+        </table>
+      </div>
+
+      <div class="sec-head" style="margin-top:26px">
+        <span class="sec-title">أحدث الشكاوي</span>
+        <span class="sec-link" onclick="navigate('complaints')">عرض الكل ←</span>
+      </div>
+      <div id="homeComplaintsPreview"></div>
+
+      <div class="sec-head" style="margin-top:6px">
+        <span class="sec-title">آخر النشاطات</span>
+      </div>
+      <div class="activity-list" id="homeActivity"></div>
+    </section>
+
+    <!-- ══ COMPLAINTS ══ -->
+    <section class="page-section" id="sec-complaints">
+      <div class="sec-head" style="margin-bottom:8px">
+        <span class="sec-title" style="font-size:1.3rem">الشكاوي والتواصل</span>
+      </div>
+      <div class="mc-tabs" id="complaintTabs">
+        <div class="mc-tab active" data-filter="all">الكل <span class="tab-count" id="tc-all">0</span></div>
+        <div class="mc-tab" data-filter="new">جديد <span class="tab-count" id="tc-new">0</span></div>
+        <div class="mc-tab" data-filter="reviewing">قيد المراجعة <span class="tab-count" id="tc-reviewing">0</span></div>
+        <div class="mc-tab" data-filter="closed">مغلق <span class="tab-count" id="tc-closed">0</span></div>
+      </div>
+      <div id="complaintsList"></div>
+    </section>
+
+    <!-- ══ INSTRUCTORS ══ -->
+    <section class="page-section" id="sec-instructors">
+      <div class="sec-head" style="margin-bottom:8px">
+        <span class="sec-title" style="font-size:1.3rem">طلبات المدربين</span>
+      </div>
+      <div class="mc-tabs" id="instructorTabs">
+        <div class="mc-tab active" data-filter="pending">قيد المراجعة <span class="tab-count" id="itc-pending">0</span></div>
+        <div class="mc-tab" data-filter="accepted">مقبول <span class="tab-count" id="itc-accepted">0</span></div>
+        <div class="mc-tab" data-filter="rejected">مرفوض <span class="tab-count" id="itc-rejected">0</span></div>
+      </div>
+      <div id="instructorsList"></div>
+    </section>
+
+    <!-- ══ USERS ══ -->
+    <section class="page-section" id="sec-users">
+      <div class="sec-head" style="margin-bottom:8px">
+        <span class="sec-title" style="font-size:1.3rem">إدارة المستخدمين</span>
+      </div>
+      <div class="mc-tabs" id="userTabs">
+        <div class="mc-tab active" data-filter="all">الكل <span class="tab-count" id="utc-all">0</span></div>
+        <div class="mc-tab" data-filter="student">طلاب <span class="tab-count" id="utc-student">0</span></div>
+        <div class="mc-tab" data-filter="instructor">مدربون <span class="tab-count" id="utc-instructor">0</span></div>
+        <div class="mc-tab" data-filter="suspended">موقوفون <span class="tab-count" id="utc-suspended">0</span></div>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="ابحث بالاسم أو البريد..." id="userSearch" oninput="renderUsers()"/>
+        <span class="search-bar-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table" style="background:white;border-radius:var(--radius-lg);border:1px solid var(--color-border)">
+          <thead><tr><th>المستخدم</th><th>النوع</th><th>تاريخ التسجيل</th><th>الحالة</th><th>الإجراءات</th></tr></thead>
+          <tbody id="usersTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ COURSES ══ -->
+    <section class="page-section" id="sec-courses">
+      <div class="sec-head" style="margin-bottom:8px">
+        <span class="sec-title" style="font-size:1.3rem">إدارة الكورسات</span>
+      </div>
+      <div class="mc-tabs" id="courseTabs">
+        <div class="mc-tab active" data-filter="all">الكل <span class="tab-count" id="ctc-all">0</span></div>
+        <div class="mc-tab" data-filter="published">منشور <span class="tab-count" id="ctc-published">0</span></div>
+        <div class="mc-tab" data-filter="hidden">مخفي <span class="tab-count" id="ctc-hidden">0</span></div>
+      </div>
+      <div class="search-bar">
+        <input type="text" placeholder="ابحث باسم الكورس أو المدرب..." id="courseSearch" oninput="renderCourses()"/>
+        <span class="search-bar-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+      </div>
+      <div class="table-scroll">
+        <table class="data-table" style="background:white;border-radius:var(--radius-lg);border:1px solid var(--color-border)">
+          <thead><tr><th>الكورس</th><th>المدرب</th><th>التخصص</th><th>الطلاب</th><th>الإيراد</th><th>الحالة</th><th>إجراء</th></tr></thead>
+          <tbody id="coursesTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ EARNINGS ══ -->
+    <section class="page-section" id="sec-earnings">
+      <div class="sec-head" style="margin-bottom:8px">
+        <span class="sec-title" style="font-size:1.3rem">الإيرادات والسحب</span>
+      </div>
+
+      <div class="stats-grid" id="earningsStats"></div>
+
+
+      <!-- تفاصيل كل كورس -->
+      <div class="sec-head"><span class="sec-title">تفاصيل إيرادات الكورسات</span></div>
+      <div class="table-scroll">
+        <table class="data-table" style="background:white;border-radius:var(--radius-lg);border:1px solid var(--color-border)">
+          <thead><tr><th>الكورس</th><th>المدرب</th><th>الطلاب</th><th>إجمالي الإيراد</th><th>نصيب المنصة</th><th>نصيب المدرب</th></tr></thead>
+          <tbody id="earningsTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- طلبات السحب -->
+      <div class="sec-head" style="margin-top:8px"><span class="sec-title">طلبات السحب المعلقة</span></div>
+      <div id="withdrawRequests"></div>
+    </section>
+
+    <!-- ══ PROFILE ══ -->
+    <section class="page-section" id="sec-profile">
+      <div class="sec-head" style="margin-bottom:18px"><span class="sec-title" style="font-size:1.3rem">الملف الشخصي</span></div>
+      <div class="info-card">
+        <div style="display:flex;align-items:center;gap:20px;margin-bottom:24px;flex-wrap:wrap">
+          <div style="width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--color-admin),var(--color-primary));display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-weight:900;font-size:1.5rem;color:white;flex-shrink:0">أد</div>
+          <div>
+            <div style="font-family:var(--font-display);font-weight:900;font-size:1.2rem;color:var(--color-text)">أدمن الموقع</div>
+            <div style="font-size:0.83rem;color:var(--color-text-muted);margin-bottom:6px">admin@medicalhub.com</div>
+            <span class="pill pill-purple">⚙ مدير النظام</span>
+          </div>
+        </div>
+        <div class="form-grid">
+          <div class="form-group"><label class="form-label">الاسم</label><input class="form-input" value="أدمن الموقع" type="text"/></div>
+          <div class="form-group"><label class="form-label">رقم الهاتف</label><input class="form-input" value="01000000000" type="tel"/></div>
+          <div class="form-group full"><label class="form-label">البريد الإلكتروني</label><input class="form-input" value="admin@medicalhub.com" type="email" readonly/></div>
+        </div>
+        <div style="margin-top:18px;display:flex;gap:10px">
+          <button class="btn btn-admin" onclick="showToast('تم حفظ التغييرات','success')">حفظ التغييرات</button>
+          <button class="btn btn-outline">إلغاء</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SETTINGS ══ -->
+    <section class="page-section" id="sec-settings">
+      <div class="sec-head" style="margin-bottom:18px"><span class="sec-title" style="font-size:1.3rem">الإعدادات</span></div>
+      <div class="info-card">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--color-text);margin-bottom:16px">تغيير كلمة المرور</div>
+        <div class="form-grid">
+          <div class="form-group full"><label class="form-label">كلمة المرور الحالية</label><input class="form-input" type="password" placeholder="••••••••"/></div>
+          <div class="form-group"><label class="form-label">كلمة المرور الجديدة</label><input class="form-input" type="password" placeholder="••••••••"/></div>
+          <div class="form-group"><label class="form-label">تأكيد كلمة المرور</label><input class="form-input" type="password" placeholder="••••••••"/></div>
+        </div>
+        <div style="margin-top:16px"><button class="btn btn-admin" onclick="showToast('تم تحديث كلمة المرور','success')">تحديث</button></div>
+      </div>
+      <div class="info-card">
+        <div style="font-family:var(--font-display);font-weight:800;font-size:0.95rem;color:var(--color-text);margin-bottom:16px">إعدادات الإشعارات</div>
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:0.87rem">إشعارات شكاوي جديدة<input type="checkbox" checked style="width:17px;height:17px;accent-color:var(--color-admin);cursor:pointer"/></label>
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:0.87rem">إشعارات طلبات المدربين<input type="checkbox" checked style="width:17px;height:17px;accent-color:var(--color-admin);cursor:pointer"/></label>
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:0.87rem">إشعارات طلبات السحب<input type="checkbox" checked style="width:17px;height:17px;accent-color:var(--color-admin);cursor:pointer"/></label>
+          <label style="display:flex;align-items:center;justify-content:space-between;cursor:pointer;font-size:0.87rem">تقارير أسبوعية<input type="checkbox" style="width:17px;height:17px;accent-color:var(--color-admin);cursor:pointer"/></label>
+        </div>
+        <div style="margin-top:16px"><button class="btn btn-admin" onclick="showToast('تم حفظ الإعدادات','success')">حفظ</button></div>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script src="../js/admin-dashboard.js"></script>
+</body>
+</html>
