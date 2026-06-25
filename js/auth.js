@@ -224,7 +224,17 @@ function initRegisterPage() {
 
   /* Register button */
   $('registerBtn').addEventListener('click', handleRegister);
-
+// إظهار/إخفاء حقول الانستراكتور
+document.querySelectorAll('input[name="role"]').forEach(r => {
+  r.addEventListener('change', () => {
+    const fields = $('instructor-fields');
+    if (r.value === 'instructor' && r.checked) {
+      fields.style.display = 'flex';
+    } else {
+      fields.style.display = 'none';
+    }
+  });
+});
   /* OTP verify button */
   $('verifyOtpBtn').addEventListener('click', handleVerifyOTP);
 
@@ -298,7 +308,18 @@ function validatePhone() {
   if (!isValidEgyptPhone(v)) { setFieldState('fg-phone', 'invalid', 'الرقم غير صحيح '); return false; }
   setFieldState('fg-phone', 'valid'); return true;
 }
+function validateSpecialty() {
+  const v = $('specialty').value;
+  if (!v) { setFieldState('fg-specialty', 'invalid', 'يرجى اختيار تخصصك'); return false; }
+  setFieldState('fg-specialty', 'valid'); return true;
+}
 
+function validateBio() {
+  const v = $('bio').value.trim();
+  if (!v) { setFieldState('fg-bio', 'invalid', 'النبذة الشخصية مطلوبة'); return false; }
+  if (v.length < 20) { setFieldState('fg-bio', 'invalid', 'النبذة قصيرة جداً (٢٠ حرف على الأقل)'); return false; }
+  setFieldState('fg-bio', 'valid'); return true;
+}
 function validateRegPassword() {
   const v = $('reg-password').value;
   if (!v) { setFieldState('fg-reg-password', 'invalid', 'كلمة المرور مطلوبة'); return false; }
@@ -319,21 +340,26 @@ function validateConfirm() {
 
 /* ── Main register handler ── */
 async function handleRegister() {
-  const ok = [
-    validateName('fname', 'fg-fname', 'الاسم الأول'),
-    validateName('mname', 'fg-mname', 'الاسم الثاني'),
-    validateName('lname', 'fg-lname', 'الاسم الثالث'),
-    validateRegEmail(),
-    validatePhone(),
-    validateRegPassword(),
-    validateConfirm(),
-  ].every(Boolean);
+let ok = [
+  validateName('fname', 'fg-fname', 'الاسم الأول'),
+  validateName('mname', 'fg-mname', 'الاسم الثاني'),
+  validateName('lname', 'fg-lname', 'الاسم الثالث'),
+  validateRegEmail(),
+  validatePhone(),
+  validateRegPassword(),
+  validateConfirm(),
+].every(Boolean);
 
-  if (!ok) {
-    showAlert('reg-error', 'يرجى تصحيح الأخطاء المذكورة أعلاه', 'error');
-    return;
-  }
-  hideAlert('reg-error');
+const role = document.querySelector('input[name="role"]:checked')?.value;
+if (role === 'instructor') {
+  ok = ok && validateSpecialty() && validateBio();
+}
+
+if (!ok) {
+  showAlert('reg-error', 'يرجى تصحيح الأخطاء المذكورة أعلاه', 'error');
+  return;
+}
+hideAlert('reg-error');
 
   const btn = $('registerBtn');
   setLoading(btn, true);
@@ -356,17 +382,18 @@ async function handleRegister() {
   }
 
   /* Switch to OTP card */
-  $('otpEmailDisplay').textContent = email;
-  $('registerCard').style.display  = 'none';
-  $('otpCard').style.display       = '';
-  document.querySelectorAll('.otp-input').forEach(i => i.value = '');
-  document.querySelector('.otp-input')?.focus();
+$('otpEmailDisplay').textContent = email;
+$('registerCard').style.display  = 'none';
+$('otpCard').style.display       = '';
+document.querySelectorAll('.otp-input').forEach(i => i.value = '');
+document.querySelectorAll('.otp-input')[5]?.focus();
+sessionStorage.setItem('mh_role', role);
 }
 
 /* ── OTP verify handler ── */
 function handleVerifyOTP() {
   const inputs   = document.querySelectorAll('.otp-input');
-  const entered  = Array.from(inputs).map(i => i.value.trim()).join('');
+const entered = Array.from(inputs).reverse().map(i => i.value.trim()).join('');
 
   if (entered.length < 6) {
     showAlert('otp-error', 'أدخل الكود المكون من ٦ أرقام كاملاً', 'error');
@@ -396,10 +423,19 @@ function handleVerifyOTP() {
   showAlert('otp-success', '🎉 تم تفعيل حسابك بنجاح! جاري التوجيه...', 'success');
   $('verifyOtpBtn').disabled = true;
 
-  setTimeout(() => {
+setTimeout(() => {
+  const role = sessionStorage.getItem('mh_role');
+  sessionStorage.removeItem('mh_role');
+  if (role === 'instructor') {
+    // instructor → صفحة الانتظار
+    $('otpCard').style.display     = 'none';
+    $('pendingCard').style.display = '';
+  } else {
+    // طالب → صفحة الدخول
     /* window.location.href = 'login.html'; */
     console.log('→ حساب مفعّل، توجيه لصفحة الدخول');
-  }, 2000);
+  }
+}, 2000);
 }
 
 /* ── Resend OTP ── */
@@ -428,32 +464,34 @@ async function handleResendOTP() {
 /* ── OTP input: auto-advance & backspace ── */
 function initOTPInputs() {
   const inputs = Array.from(document.querySelectorAll('.otp-input'));
-  /* RTL: inputs are ordered right→left visually, but DOM index 0 = rightmost (first digit) */
+
   inputs.forEach((inp, idx) => {
     inp.addEventListener('input', e => {
       const val = e.target.value.replace(/\D/g, '');
       inp.value = val;
       inp.classList.toggle('filled', !!val);
-      /* Advance to next input (leftward in RTL = lower DOM index) */
+      /* الكتابة من شمال لي يمين: index 5 → 4 → 3 → 2 → 1 → 0 */
       if (val && idx > 0) inputs[idx - 1].focus();
     });
+
     inp.addEventListener('keydown', e => {
       if (e.key === 'Backspace' && !inp.value && idx < inputs.length - 1) {
         inputs[idx + 1].focus();
       }
     });
+
     inp.addEventListener('paste', e => {
       e.preventDefault();
-      const pasted = (e.clipboardData || window.clipboardData).getData('text').replace(/\D/g, '').slice(0, 6);
-      /* Fill from right (index 5) to left (index 0) */
+      const pasted = (e.clipboardData || window.clipboardData)
+        .getData('text').replace(/\D/g, '').slice(0, 6);
       const arr = pasted.split('');
-      inputs.slice().reverse().forEach((input, i) => {
+      /* fill من index 5 (شمال) لـ 0 (يمين) */
+      [...inputs].reverse().forEach((input, i) => {
         input.value = arr[i] || '';
         input.classList.toggle('filled', !!input.value);
       });
-      /* Focus last filled */
-      const lastFilled = inputs.find(i => !i.value);
-      (lastFilled || inputs[0]).focus();
+      const firstEmpty = [...inputs].reverse().find(i => !i.value);
+      (firstEmpty || inputs[0]).focus();
     });
   });
 }

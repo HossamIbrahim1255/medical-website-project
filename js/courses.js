@@ -357,5 +357,15 @@
     }, { passive: true });
     scrollTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
+// قراءة الفلتر من الـ URL لو جاي من صفحة تانية
+const urlParams = new URLSearchParams(window.location.search);
+const specialtyParam = urlParams.get('specialty');
+if (specialtyParam && specialtyParam !== 'all') {
+  filters.specialty = specialtyParam;
+  // تفعيل الـ chip المناسب
+  document.querySelectorAll('#specialtyFilter .filter-chip').forEach(c => {
+    c.classList.toggle('active', c.dataset.val === specialtyParam);
+  });
+}
     // Init
     renderAll();
