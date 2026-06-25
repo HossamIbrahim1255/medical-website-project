@@ -82,7 +82,7 @@ ul  { list-style: none; }
   justify-content: space-between;
 }
 
-.nav-logo { display: flex; align-items: center; gap: 10px; margin-right: -50px; }
+.nav-logo { display: flex; align-items: center; gap: 10px; }
 .nav-logo-icon { width: 40px; height: 40px; background: linear-gradient(135deg, var(--color-primary), var(--color-accent)); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .nav-logo-icon svg { width: 22px; height: 22px; fill: white; }
 .nav-logo-text { font-family: var(--font-display); font-size: 1.2rem; font-weight: 800; color: var(--color-text); }
@@ -107,6 +107,7 @@ ul  { list-style: none; }
 .nav-mobile a:hover { background: var(--color-primary-pale); color: var(--color-primary); }
 .nav-mobile .mobile-actions { display: flex; flex-direction: column; gap: 8px; margin-top: 10px; padding-top: 14px; border-top: 1px solid var(--color-border); }
 .nav-mobile .mobile-actions .btn { justify-content: center; }
+    .nav-links a:hover, .nav-links a.active { color: var(--color-primary); background: var(--color-primary-pale); }
 
 /* ── HERO ── */
 #hero {
